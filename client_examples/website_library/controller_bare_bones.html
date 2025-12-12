@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSocket Client</title>
+  </head>
+  <body>
+    <div>
+      <label for="ipAddress">IP Adress:</label>
+      <input type="text" id="ipAddress" value="192.168.30.168" />
+    </div>
+    <div>
+      <label for="port">Port:</label>
+      <input type="text" id="port" value="8080" />
+    </div>
+    <div>
+      <label for="clientType">Typ:</label>
+      <input type="text" id="clientType" value="controller" />
+    </div>
+    <div>
+      <label for="useHttps">Använd HTTPS (wss://):</label>
+      <input type="checkbox" id="useHttps" />
+    </div>
+
+    <button onclick="connectToServer()">Anslut</button>
+    <button onclick="sendTestMessage()">Skicka testmeddelande</button>
+    <button onclick="listenToTemp()">Lyssna på temp</button>
+  </body>
+
+  <!-- import library -->
+  <script src="greenhouse.js"></script>
+
+  <script>
+    // connect with input field values
+    function connectToServer() {
+      const ip = document.getElementById("ipAddress").value;
+      const port = document.getElementById("port").value;
+      const type = document.getElementById("clientType").value;
+      const useHttps = document.getElementById("useHttps").checked;
+
+      // protocol
+      const protocol = useHttps ? "wss://" : "ws://";
+
+      const url = `${protocol}${ip}:${port}?type=${type}`;
+      console.log(`Ansluter till: ${url}`);
+
+      // this method just helps to format the url
+      // it should look something like this:
+      // ws://192.168.30.168:8080?clientType=controller
+
+      connect(url);
+    }
+
+    onServerConnect = () => {
+      alert("Ansluten till servern!");
+    };
+
+    onServerDisconnect = () => {
+      alert("Frånkopplad från servern!");
+    };
+
+    function sendTestMessage() {
+      sendMessage("temp", 100); // sends 100 to worker through 'temp'
+    }
+
+    function listenToTemp() {
+      startReceivingFromTunnel("temp", (information, content) => {
+        alert(
+          `${information.fromType} skickar genom tunneln '${information.fromTunnel}': ${content}`
+        );
+      });
+    }
+  </script>
+</html>

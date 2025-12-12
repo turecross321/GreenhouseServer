@@ -80,8 +80,8 @@ class Chat implements MessageComponentInterface
 
             foreach ($header->sendTo as $key => $sendTo) {
                 // "sendTo": [
-                //   {"tunnel": "temp", recipientType: "controller"}
-                //   {"tunnel": "humidity", recipientType: "controller"}
+                //   {"tunnel": "temp", "recipientType": "controller"}
+                //   {"tunnel": "humidity", "recipientType": "controller"}
                 //]
 
 
