@@ -23,7 +23,7 @@ Vi har skapat en enkel library för kommunikation med servern, som kan importera
 
 För att använda den:
 
-1. Ladda ned `greenhouse.js`, och placera den i samma mapp som din hemsida.
+1. Ladda ned [greenhouse.js](https://github.com/turecross321/GreenhouseServer/blob/main/client_examples/website_library/greenhouse.js), och placera den i samma mapp som din hemsida.
 2. Importera `greenhouse.js` i din html:
 
 ```html
@@ -33,18 +33,16 @@ För att använda den:
 
 3. Anslut till server i din egna javascript:
 
-TODO TILL TURE: FLYTTA UT CLIENTTYPE OCH LÅT LIBRARYN GÖRA DET SJÄLV
-
 ```js
-const url = ws://192.168.30.168:8080?clientType=controller
+const url = "ws://192.168.30.168:8080?clientType=controller";
 connect(url);
 
 onServerConnect = () => {
-    // Denna funktion kommer att köras när du har anslutit till servern.
+  // Denna funktion kommer att köras när du har anslutit till servern.
 };
 
 onServerDisconnect = () => {
-    // Denna funktion kommer att köras när du tappar anslutning till servern.
+  // Denna funktion kommer att köras när du tappar anslutning till servern.
 };
 ```
 
