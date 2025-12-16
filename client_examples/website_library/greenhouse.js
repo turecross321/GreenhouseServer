@@ -4,8 +4,8 @@ let tunnelCallbacks;
 let onServerConnect;
 let onServerDisconnect;
 
-function connect(uri) {
-    websocket = new WebSocket(uri);
+function connect(uri, type = "controller") {
+    websocket = new WebSocket(uri + "?type=" + type);
 
     websocket.onopen = onOpen;
     websocket.onmessage = onMessage;

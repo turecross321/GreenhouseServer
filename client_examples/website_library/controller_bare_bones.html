@@ -42,14 +42,14 @@
       // protocol
       const protocol = useHttps ? "wss://" : "ws://";
 
-      const url = `${protocol}${ip}:${port}?type=${type}`;
+      const url = `${protocol}${ip}:${port}`;
       console.log(`Ansluter till: ${url}`);
 
       // this method just helps to format the url
       // it should look something like this:
       // ws://192.168.30.168:8080?clientType=controller
 
-      connect(url);
+      connect(url, type);
     }
 
     onServerConnect = () => {
