@@ -33,7 +33,7 @@ function onMessage(event) {
     // information.fromTunnel
 
     // typen som meddelandet kommer från hamnar i:
-    // information.fromTunnel
+    // information.fromType
 
     // meddelandet som skickades hamnar i:
     // content
