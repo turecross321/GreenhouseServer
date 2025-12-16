@@ -34,8 +34,8 @@ För att använda den:
 3. Anslut till server i din egna javascript:
 
 ```js
-const url = "ws://192.168.30.168:8080?type=controller";
-connect(url);
+const url = "ws://192.168.30.168:8080";
+connect(url, "controller");
 
 onServerConnect = () => {
   // Denna funktion kommer att köras när du har anslutit till servern.
