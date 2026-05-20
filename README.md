@@ -85,5 +85,5 @@ OBS! Glöm inte att sluta lyssna på en tunnel om du inte längre vill ta emot n
 
 ```js
 const tunnel = "temperature";
-stopReceivingFromTunnel(temperature);
+stopReceivingFromTunnel(tunnel);
 ```
